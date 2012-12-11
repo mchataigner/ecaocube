@@ -1,0 +1,52 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   READ ME %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Ce fichier a pour but de décrire le role des fonctions présentent dans ce dossier. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% Etude de détection des concours %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Méthode de prétraitement 
+choixRotation.m : recherche grâce à des rotations successives, l'image où le cube est le mieux orienté 
+
+% Méthode de détection de pic 
+detectionPicDerivee.m : méthode utilisant la dérivé des projections en X et Y
+detectionPicBarreGlissante.m : méthode utilisant le seuillage sur les projections en X et Y 
+
+% Méthode de détection de plat
+detectionPlatVariance1D.m : méthode utilisant la variance des projections en X et Y
+-> varianceCoordonnee.m : calcule la variance sur un certain nombre de point d'un vecteur 
+-> distances_euclidienne.m : calcule la matrice des distances entre deux vecteurs 
+detectionPlatVariance2D_coord.m : méthode utilisant la variance sur l'image 
+-> trouverUnPlat.m : trouve un plat pour la méthode de detectionPlatVariance2D_coord.m 
+-> distances_euclidienne.m : calcule la matrice des distances entre deux vecteurs 
+
+% Méthode principale de test des méthodes de détection 
+mainTestDerivee.m
+mainTestBarreGlissante.m
+mainTestVariance1D.m
+mainTestVariance2D.m
+
+% Méthode de test de performance 
+efficacite.m : méthode enregistrant les résultats des méthode de détection 
+benchmark.m : méthode calculant le temps d'éxecution des méthodes de détection et de prétraitement 
+
+% Méthode autre               
+main.m
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% Etude de détection des couleurs %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% méthode par plus proche centre
+kppv.m
+
+% Méthode K-Means
+k_moyenne.m
+affectation.m 
+nouveaux_centres.m
+genererMu.m
+distance_euclidienne.m
+
+% Méthode de test 
+mainCouleur.m

@@ -1,0 +1,28 @@
+\section{UML Final}
+    
+    
+\begin{figure}[!h]
+\includegraphics[scale= .30,angle=90]{images/DiagrammeDeClasseJava.pdf}
+\end{figure}
+
+\begin{figure}[!h]
+\includegraphics[scale= .30]{images/DiagrammeDeClasse_Enum.pdf}
+\end{figure}
+
+    
+\section{Améliorations futures}
+    En tenant compte du travail qui a ont réalisés ce semestre, plusieurs améliorations sont désormais envisageables de manière réaliste.
+    
+    ~
+    
+    Grâce à l'apparition d'une base de données, il sera plus aisé d'ajouter de nouveaux algorithmes, particulièrement des algorithmes optimaux en termes de nombre de mouvements. En effet, les algorithmes de la base de données que nous avons utilisés sont optimisés pour une manipulation humaine du Rubik's Cube, c'est-à-dire qu'ils présente un excellent rapport nombre de mouvement / enchaînement des mouvements élémentaire (minimisationdes déplacements de la main). Cependant, la position des mains n'est pas un paramètre déterminant pour une manipulation par un robot. Nous estimons que remplacer les algorithmes de la base optimisé pour manipulation humaine par d'autres optimisés en termes de nombre de mouvements, la réduction du nombre de mouvement de la solution finale actuellement fournie par \texttt{MediumResolution} serait de l'ordre de \textbf{5\%}.
+    
+    ~
+    
+    Un autre piste d'amélioration réaliste est de créer une stratégie de résolution plus performante. Celle qui a été développée au cours de ce semestre, \texttt{MediumResolution}, applique en réalité une résolution des deux premières couronnes de niveau débutant suivi d'une résolution de la dernière couronne (phases d'orientation et de permutation) de niveau avancée. En reprenant cette résolution avancée de la dernière couronne et en l'associant à une résolution de niveau avancé des deux premières, il est possible de constituer une stratégie de résolution de niveau avancé produisant des algorithmes solution d'une longeur moyenne de 65 à 70 mouvements, soit \textbf{30} à \textbf{35\%} d'amélioration par rapport aux solutions fournies par \texttt{MediumResolution}.
+    
+    ~ 
+    
+    Les chiffres concernant les améliorations possibles fournis ici sont des estimations réalistes. Cependant, il faut admettre que pour la deuxième piste d'amélioration évoquée plus haut, le temps de travail serait important, c'est-à-dire au moins un semestre complet de travail pour deux personnes maîtrisant ce type de résolution.
+    
+    

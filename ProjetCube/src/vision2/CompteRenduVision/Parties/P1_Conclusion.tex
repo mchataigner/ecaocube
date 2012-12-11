@@ -1,0 +1,81 @@
+  Nous avons comparé ces différentes méthodes afin de choisir la plus appropriée à nos besoins. 
+
+  Afin de tester la performance de chacune de ces méthodes, nous avons testé chacune d'elle sur un échantillon de photo de 5 lots de 6 faces avec des prétraitements différents.
+
+\subsection*{Etude des pré-traitements adaptés pour chaque méthode}
+
+  Dans ce paragraphe, nous allons présenté les choix des pré-traitements le mieux adaptés à chacune des méthode précédemment étudiées. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DERIVEE
+  Voilà les résultats obtenus pour cet échantillon par la méthode de la dérivée : \\
+\begin{tabular}{|c|c|c|c|c|}
+  \hline
+ \textbf{Prétraitement} & NF + NO & F + NO & NF + O & F + O  \\
+  \hline
+  OK & 89\% & 94\% & 83\% & 94\% \\ % conf 4 5 6 
+  OKR & 45\% & 55\% & 25\% & 25\% \\  % conf 7 8
+  \hline 
+\end{tabular}
+
+F = utilisation d'un filtre, NF = pas d'utilisation d'un filtre, O = image orientée, NO = image non orienté \\
+OK = nombre d'image où la détection des contours est un succés, OKR = nombre d'image ayant des reflets où la détection des contours est un succés\\
+
+Nous comptons comme succes le fait de trouver les deux séparations centrale entre les facettes
+  
+  Nous constatons que cette méthode donne généralement de bon résultats. En effet la majore partie des échecs sont du à la détection d'une arrète du cube au lieux d'une séparation.  % A remplir 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SEUILLAGE
+  Voilà les résultats obtenus pour cet échantillon par la méthode du seuillage : \\
+\begin{tabular}{|c|c|c|c|c|}
+  \hline
+ \textbf{Prétraitement} & NF + NO & F + N0 & NF + 0 & F + 0  \\
+  \hline
+  OK & 100\% & 94\% & 89\% & 100\% \\ % conf 4 5 6 
+  OKR & 83\% & 83\% & 83\% & 75\% \\ % conf 7 8
+  \hline 
+\end{tabular}
+
+F = utilisation d'un filtre, NF = pas d'utilisation d'un filtre, O = image orientée, NO = image non orienté \\
+OK = nombre d'image où la détection des contours est un succés, OKR = nombre d'image ayant des reflets où la détection des contours est un succés\\
+
+Nous comptons comme succes le fait de trouver au moins les deux séparations centrales des facettes.
+
+ Nous constatons que les résultats sont glogalement bon. Cependant il apparait un bruit sous la forme d'une zone sombre parazite qui peut être très genant pour la suite tu travail.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VARIANCE 1D 
+  Voilà les résultats obtenus pour cet échantillon par la méthode de la variance sur les projections en X et Y : \\
+\begin{tabular}{|c|c|c|c|c|}
+  \hline
+ \textbf{Prétraitement} & NF + NO & F + N0 & NF + 0 & F + 0  \\
+  \hline
+  OK & 0\% & 0\% & 0\% & 0\% \\ % conf 4 5 6 
+  OKR & 0\% & 0\% &  0\% & 0\% \\ % conf 7 8
+  \hline 
+\end{tabular}
+
+F = utilisation d'un filtre, NF = pas d'utilisation d'un filtre, O = image orientée, NO = image non orienté \\
+OK = nombre d'image où la détection des contours est un succés, OKR = nombre d'image ayant des reflets où la détection des contours est un succés\\
+
+Nous comptons comme succes le fait que chaques intersection tombe sur une facette colorée.
+
+  En vue des résultats obtenus, nous pouvons clairement dire que cette méthode ne se suffit pas à elle même. Cependant, il est possible de combiner cette approche avec la méthode de la dérivé en vu d'amméliorer ces résultats.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VARIANCE 2D 
+  Voilà les résultats obtenus pour cet échantillon par la méthode de la variance sur l'image : \\
+\begin{tabular}{|c|c|c|}
+  \hline
+ \textbf{Prétraitement} & NO & 0  \\
+  \hline
+  OK & 55\% & 55\%  \\ % conf 4 5 6 
+  OKR & 0\% & 0 \% \\ % conf 7 8
+  \hline 
+\end{tabular}
+
+O = image orientée, NO = image non orienté \\
+OK = nombre d'image où la détection des contours est un succés, OKR = nombre d'image ayant des reflets où la détection des contours est un succés\\
+
+  Ces résultat montrent que cette méthode implémenté seule ne permet pas une detection correcte des facettes du cube.
+
+  

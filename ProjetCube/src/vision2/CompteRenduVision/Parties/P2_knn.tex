@@ -1,0 +1,26 @@
+  \subsubsection{Principe}
+
+  Cette méthode est simple et nous a permis d'avoir un premier aperçu du rendu d'une classification. 
+
+  Nous avons utilisé les données des centres pour créer notre modèle. 
+
+  Ainsi les éléments vont être rattachés à la classe caractérisée par le centre le plus proche. 
+Nous avons utilisé la distance euclidienne pour calculer la distance entre les éléments. 
+
+  \subsubsection{Implantation initiale}
+
+  Nous avons utilisé la toolbox créée en cours de Data Mining dont la signature est : 
+
+  \verb|function [y_new] = kppv( x_new,x, y)|
+
+  On utilise les valeurs de paramètres suivants : 
+  \begin{itemize}
+    \item x\_new = valeur RGB des carrés ;
+    \item x = valeur RGB des centres ;
+    \item y = label associé à chaque centre. 
+  \end{itemize}
+
+Les valeurs calculées sont : 
+  \begin{itemize}
+    \item y\_new = label des différents éléments de x. 
+  \end{itemize}

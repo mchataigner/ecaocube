@@ -1,0 +1,11 @@
+<!ELEMENT liste-algo (liste-oll|liste-pll)>
+
+<!ELEMENT liste-oll (oll*)>
+<!ELEMENT oll (algo)>
+<!ATTLIST oll index ID #REQUIRED>
+
+<!ELEMENT liste-pll (pll*)>
+<!ELEMENT pll (algo)>
+<!ATTLIST pll index CDATA #REQUIRED>
+
+<!ELEMENT algo (#PCDATA)>

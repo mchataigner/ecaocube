@@ -1,0 +1,25 @@
+  Le but de cette UV est de compléter le travail de résolution du \rubic{} effectué par nos camarades au cours des semestres précédents en 
+y ajoutant un module de reconnaissance de formes. 
+  Ce module aura pour but de reconnaître la configuration de départ du \rubic{} afin de rendre totalement automatisée la chaîne d'acquisition. 
+
+  Nous allons diviser cette tache en trois tâches successives : 
+\begin{enumerate}
+  \item Recalage permettant de trouver les carrés de la face considérée,  
+  \item Détection des couleurs à partir des images de la webcam couleur, 
+  \item Interfaçage avec le système de résolution déjà existant en Java. 
+\end{enumerate}
+
+  Nous avons choisi de traiter ce sujet car nous voulions approfondir et mettre en application les notions de traitement d'images 
+et reconnaissance de forme. 
+  De plus, l'automatisation du robot permettrait de mettre en valeur le travail des élèves du département 
+\asi{} par la finition de la chaîne de traitement des données aboutissant à la résolution du \rubic{}. 
+
+  Nous avons travaillé sur des images prises grâce à une webcam fixée sur le robot. 
+Nous avons ainsi récupéré les différentes face du \rubic{} avec des conditions environnementales notamment d'éclairage différentes. 
+
+  Nous avons choisi de travailler sur ces images sous Octave. 
+En effet, l'outil Octave est étudié pour optimiser la manipulation des matrices et est libre, 
+c'est pour cela que nous avons choisi cet outil de développement. 
+
+  Nous allons dans la suite de ce rapport vous décrire notre démarche et justifier nos choix pour chacune des trois tâches 
+décrites ci-dessus. 

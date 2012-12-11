@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE algo SYSTEM "algo.dtd">
+<liste-algo>
+
+    <liste-oll>
+        <oll index="1" forme="LBRLURLFR">
+            <algo>R U2 R2 F R Fp U2 Rp F R Fp</algo>
+        </oll>
+        <oll index="2" forme="LBBLURLFF">
+            <algo>F R U Rp Up Fp f R U Rp Up fp</algo>
+        </oll>
+        <oll index="3" forme="UBRLURLFF">
+            <algo>L U2 L yp Rp Fp R U R U Rp U Fp y</algo>
+        </oll>
+        <oll index="4" forme="LBULURFFR">
+            <algo>Rp U2 Rp y L F Lp Up Lp Up L Up F yp</algo>
+        </oll>
+        <oll index="5" forme="UBBLURLFU">
+            <algo>R U Rp U Rp F R Fp U2 Rp F R Fp</algo>
+        </oll>
+        <oll index="6" forme="UBULURLFR">
+            <algo>rp U2 R U Rp U r2 U2 Rp Up R Up rp</algo>
+        </oll>
+        <oll index="7" forme="BBBLURUFU">
+            <algo>F R U Rp U yp Rp U2 Rp y L F Lp</algo>
+        </oll>
+        <oll index="8" forme="UBULURUFU">
+            <algo>rp R yp R U Rp Up Rp Up Rp U R yp rp R y2</algo>
+        </oll>
+        <oll index="9" forme="LURLURLUR">
+            <algo>Rp U2 R2 U Rp U R U2 Bp Rp B</algo>
+        </oll>
+        <oll index="10" forme="LBRUUULFR">
+            <algo>F R U Rp Up R Fp r U Rp Up rp</algo>
+        </oll>
+        <oll index="11" forme="LBBUUULFF">
+            <algo>f R U Rp Up R U Rp Up fp</algo>
+        </oll>
+        <oll index="12" forme="BURLURFUR">
+            <algo>Rp Up R Up Rp U yp Rp U R B y</algo>
+        </oll>
+        <oll index="13" forme="BBUUUULFF">
+            <algo>l Up lp Up l U lp yp Lp U L y</algo>
+        </oll>
+        <oll index="14" forme="UBBUUUFFR">
+            <algo>rp U r U rp Up r y R Up Rp yp</algo>
+        </oll>
+        <oll index="15" forme="UBRUUULFF">
+            <algo>lp Up l Lp Up L U lp U l</algo>
+        </oll>
+        <oll index="16" forme="LBUUUUFFR">
+            <algo>r U rp R U Rp Up r Up rp</algo>
+        </oll>
+        <oll index="17" forme="BBUUUUUFR">
+            <algo>L Fp Lp Up L U F Up Lp</algo>
+        </oll>
+        <oll index="18" forme="UBBUUULFU">
+            <algo>Rp F R U Rp Up Fp U R</algo>
+        </oll>
+        <oll index="19" forme="UURLURUUR">
+            <algo>R U R Bp Rp B Up Rp</algo>
+        </oll>
+        <oll index="20" forme="LBRUUUUFU">
+            <algo>R U Rp Up x Dp Rp U R zp rp R yp</algo>
+        </oll>
+        <oll index="21" forme="LBUUUULFU">
+            <algo>F R U Rp Up Fp</algo>
+        </oll>
+        <oll index="22" forme="BBUUUUFFU">
+            <algo>R U Rp Up Rp F R Fp</algo>
+        </oll>
+        <oll index="23" forme="UBUUUUUFU">
+            <algo>R U Rp Up r Rp U R Up rp</algo>
+        </oll>
+        <oll index="24" forme="BURLUUFFR">
+            <algo>Fp Lp Up L U Lp Up L U F</algo>
+        </oll>
+        <oll index="25" forme="LUBUURLFF">
+            <algo>F R U Rp Up R U Rp Up Fp</algo>
+        </oll>
+        <oll index="26" forme="LURUURLFR">
+            <algo>lp Up L Up Lp U L Up Lp U2 l</algo>
+        </oll>
+        <oll index="27" forme="LURLUULFR">
+            <algo>r U Rp U R Up Rp U R U2 rp</algo>
+        </oll>
+        <oll index="28" forme="BBRUURFUR">
+            <algo>l Up l2 U l2 U l2 Up l</algo>
+        </oll>
+        <oll index="29" forme="LBBLUULUF">
+            <algo>rp U r2 Up r2 Up r2 U rp</algo>
+        </oll>
+        <oll index="30" forme="BUULUULFF">
+            <algo>xp Dp L2 U L Up L D x</algo>
+        </oll>
+        <oll index="31" forme="LUULUUFFR">
+            <algo>r U2 Rp Up R Up rp</algo>
+        </oll>
+        <oll index="32" forme="LUBLUUFFU">
+            <algo>lp Up L Up Lp U2 l</algo>
+        </oll>
+        <oll index="33" forme="BURUURUFF">
+            <algo>r U Rp U R U2 rp</algo>
+        </oll>
+        <oll index="34" forme="UUBLUUFFR">
+            <algo>r R2 Up R Up Rp U2 R Up R rp</algo>
+        </oll>
+        <oll index="35" forme="BUUUURLFF">
+            <algo>r U Rp U Rp F R Fp R U2 rp</algo>
+        </oll>
+        <oll index="36" forme="BBUUURLUF">
+            <algo>R U Rp y Rp F R Up Rp Fp R yp</algo>
+        </oll>
+        <oll index="37" forme="LBUUURFUR">
+            <algo>rp R2 U2 Rp Up R Up Rp Up Rp r</algo>
+        </oll>
+        <oll index="38" forme="UBRLUUFUU">
+            <algo>R U2 R2 F R Fp R U2 Rp</algo>
+        </oll>
+        <oll index="39" forme="UBBLUULUU">
+            <algo>B Lp Bp L U L Up Lp</algo>
+        </oll>
+        <oll index="40" forme="UBBUURUUF">
+            <algo>Lp Up B U L Up Lp Bp L</algo>
+        </oll>
+        <oll index="41" forme="BBULUUFUU">
+            <algo>R U Bp Up Rp U R B Rp</algo>
+        </oll>
+        <oll index="42" forme="UBRUURUUR">
+            <algo>fp Lp Up L U f</algo>
+        </oll>
+        <oll index="43" forme="LBULUULUU">
+            <algo>f R U Rp Up fp</algo>
+        </oll>
+        <oll index="44" forme="UBUUURFUF">
+            <algo>Lp U L U2 Lp zp rp Up r z f R U zp</algo>
+        </oll>
+        <oll index="45" forme="UBULUUFUF">
+            <algo>R Up Rp U2 R z l U lp zp fp Lp Up z</algo>
+        </oll>
+        <oll index="46" forme="UBUUURLUR">
+            <algo>r2 Dp r U rp D r2 Up rp Up r</algo>
+        </oll>
+        <oll index="47" forme="UBULUULUR">
+            <algo>R2 U lp Dp l Up R2 U l U lp</algo>
+        </oll>
+        <oll index="48" forme="LBULUUUUF">
+            <algo>L U Lp U L Up Lp Up Lp B L Bp</algo>
+        </oll>
+        <oll index="49" forme="UBRUURFUU">
+            <algo>Rp Up R Up Rp U R U R Bp Rp B</algo>
+        </oll>
+        <oll index="50" forme="UUUUURUFU">
+            <algo>r U Rp Up rp R U R Up Rp</algo>
+        </oll>
+        <oll index="51" forme="LURUUULUR">
+            <algo>Lp Up L Up Lp U L Up Lp U2 L</algo>
+        </oll>
+        <oll index="52" forme="LUBUUULUF">
+            <algo>R U2 R2 Up R2 Up R2 U2 R</algo>
+        </oll>
+        <oll index="53" forme="BUBUUUUUU">
+            <algo>R2 Dp L F2 Lp D R U2 R</algo>
+        </oll>
+        <oll index="54" forme="UUUUUULUR">
+            <algo>xp R U Rp D R Up Rp Dp x</algo>
+        </oll>
+        <oll index="55" forme="LUBUUUFUU">
+            <algo>Lp Up L Up Lp U2 L</algo>
+        </oll>
+        <oll index="56" forme="BURUUUUUF">
+            <algo>R U Rp U R U2 Rp</algo>
+        </oll>
+        <oll index="57" forme="BUUUUUUUR">
+            <algo>xp R Up Rp D R U Rp Dp x</algo>
+        </oll>
+    </liste-oll>
+    
+    <liste-pll>
+        <pll index="0" name="Vide" contour="FFFRRRBBBLLL">
+            <algo> </algo>
+        </pll>
+        <pll index="1" name="U" contour="FLFRFRBBBLRL">
+            <algo>R R U R U Rp Up Rp Up Rp U Rp</algo>
+        </pll>
+        <pll index="2" name="U" contour="FRFRLRBBBLFL">
+            <algo>R Up R U R U R Up Rp Up R R</algo>
+        </pll>
+        <pll index="3" name="H" contour="FBFRLRBFBLRL">
+            <algo>R R r r U r r R R U U r r R R U r r R R</algo>
+        </pll>
+        <pll index="4" name="Z" contour="FLFRBRBRBLFL">
+            <algo>Rp Up R Up R U R Up Rp U R U R R Up Rp U U</algo>
+        </pll>
+        <pll index="5" name="A" contour="BFFRRBLBLFLR">
+            <algo>L Fp L yp L L Fp R F L L yp R R</algo>
+        </pll>
+        <pll index="6" name="A" contour="FFBLRFRBRBLL">
+            <algo>Rp F Rp y R R F Lp Fp R R yp R R</algo>
+        </pll>
+        <pll index="7" name="I" contour="FFRBBFRRBLLL">
+            <algo>F F Lp Up L F F Rp D Rp Dp R R</algo>
+        </pll>
+        <pll index="8" name="J" contour="LFFRRRBLLFBB">
+            <algo>F F R U Rp F F L Dp L D L L</algo>
+        </pll>
+        <pll index="9" name="T" contour="FFRBLFRBBLRL">
+            <algo>R U Rp Up Rp F R R Up Rp Up R U Rp Fp</algo>
+        </pll>
+        <pll index="10" name="R" contour="FLFRRBLBRBFL">
+            <algo>L U U Lp U U L Fp Lp Up L U L F L L U</algo>
+        </pll>
+        <pll index="11" name="R" contour="FRFRFBLBRBLL">
+            <algo>Rp U U R U U Rp F R U Rp Up Rp Fp R R Up</algo>
+        </pll>
+        <pll index="12" name="Y" contour="FFBLRRBLFRBL">
+            <algo>F R Up Rp Up R U Rp Fp R U Rp Up Rp F R Fp</algo>
+        </pll>
+        <pll index="13" name="G" contour="FBRBFBLRFRLL">
+            <algo>Lp Up L y L L u Lp U L Up L up L L</algo>
+        </pll>
+        <pll index="14" name="G" contour="LBFRRLFLRBFB">
+            <algo>R U Rp yp R R up R Up Rp U Rp u R R</algo>
+        </pll>
+        <pll index="15" name="D" contour="FFBLBRBRFRLL">
+            <algo>Rp U Rp Up y Rp D Rp Dp R R Fp Rp F R F</algo>
+        </pll>
+        <pll index="16" name="G" contour="FFRBLBLRFRBL">
+            <algo>L L up L Up L U Lp D F F R Up Rp</algo>
+        </pll>
+        <pll index="17" name="G" contour="LFFRBLFLRBRB">
+            <algo>R R u Rp U Rp Up R Dp F F Lp U L</algo>
+        </pll>
+        <pll index="18" name="F" contour="FFFRLBLBRBRL">
+            <algo>Rp U R Up R R yp Rp Up R U y x R U Rp Up R R Bp</algo>
+        </pll>
+        <pll index="19" name="N" contour="BFFRLLFBBLRR">
+            <algo>L Up R U U Lp U Rp L Up R U U Lp U Rp Up</algo>
+        </pll>
+        <pll index="20" name="N" contour="FFBLLRBBFRRL">
+            <algo>Rp U Lp U U R Up L Rp U Lp U U R Up L U</algo>
+        </pll>
+        <pll index="21" name="E" contour="RFLFRBLBRBLF">
+            <algo>z U Rp D r r Up R Dp U Rp D r r Up R Dp zp</algo>
+        </pll>
+    </liste-pll>
+    
+</liste-algo>

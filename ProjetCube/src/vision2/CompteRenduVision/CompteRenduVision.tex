@@ -1,0 +1,75 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[french]{babel} 
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\newcommand{\rubic}{Rubik's Cube}
+\newcommand{\asi}{Architecture des Systèmes d'Information}
+
+\title{ECAO : Reconnaissance d'images appliqué au \rubic}
+\author{Delphine SOULA \& Gabriel WIART}
+
+\begin{document}
+
+ \maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction} % P0
+\input{Parties/P0_Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Détection des contours} % P1
+\input{Parties/P1_Introduction}
+
+\subsection{Recherche de la meilleure rotation}
+\input{Parties/P1_Rotation}
+
+\subsection{Utilisation de la dérivée}
+\input{Parties/P1_Derivee}
+
+\subsection{Utilisation de la barre de seuillage}
+\input{Parties/P1_Seuillage}
+
+\subsection{Utilisation de la variance des projectetés en X et Y} 
+\input{Parties/P1_Variance1D}
+
+\subsection{Utilisation de la variance sur la matrice de l'image} 
+\input{Parties/P1_Variance2D}
+
+\subsection{Comparaison des différentes méthodes}
+\input{Parties/P1_Conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Recherche des couleurs} % P2
+\input{Parties/P2_introduction}
+
+\subsection{Résolution par KNN}
+\input{Parties/P2_knn}
+
+\subsection{Résolution par KMeans}
+\input{Parties/P2_kMeans}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Intégration au projet \rubic} % P4
+\input{Parties/P4_integration}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{État actuel d'avancement de la partie vision} % P3 
+\label{sec:avancement}
+\input{Parties/P3_EtatAvancement}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion} % P5
+\input{Parties/P5_Conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Annexes}
+
+\subsection{Fonctions Octave}
+\input{Parties/PA_Matlab}
+
+\subsection{Jeux d'images utilisés}
+\label{sec:Aconf}
+\input{Parties/PA_conf}
+
+\end{document}

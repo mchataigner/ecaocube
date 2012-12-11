@@ -1,0 +1,84 @@
+%\section{Création de la base de donnée d'algorithmes}
+\section{Approche}
+Au début projet, nous avions une grosse fonction qui faisait tous les tests nécessaires et qui effectuaient les actions qui en découlaient. Cependant dans cet état, notre programme ne possédait pas tous les algorithmes utilisés par les cubeurs pour résoudre le Rubik's Cube et effectuaient de nombreuses étapes pouvant être réduites. Nous avons donc décidé d'implanter tous ces algorithmes.
+
+
+En premier lieu, nous avons choisi d'avoir une base de donnée d'algorithme indexée selon des numéro, avec les tests pour choisir le bon algorithme dans le programme. Cependant après la première partie du développement effectuée, nous nous sommes rendus compte que la partie reconnaissance de quel algorithme appliquer serait beaucoup trop longue avec énormément de tests. Il nous a paru pertinent d'externaliser dans notre base de données la configuration requise pour chaque algorithme. Ainsi pour savoir quel algorithme appliquer sur le cube, il nous suffit d'extraire sa configuration et de rechercher dans notre bas l'algorithme correspondant. Cette étape réduit grandement le code final et améliore grandement la lisibilité.
+
+\section{XML}
+\subsection{Modélisation}
+Comme nous suivions la thématique Document (présentant entre autre les technologies liées à XML), nous avons opté pour utiliser cette technologie. Nous avions défini la structure modulaire par le biais de fichier de configuration XML. Afin que ce fichier soit correctement formé, nous avons tout d'abord conçu le modèle UML de nos données :
+\newpage
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale= .45]{images/xml.pdf}
+\end{center}
+\end{figure}
+
+\subsection{Intégrité}
+Une fois ce modèle défini, nous sommes passé à la création d'une DTD (Document Type Definition). Ce document permettra de valider notre fichier XML correspondant à la base de données d'algorithmes afin de vérifier l'intégrité des données:
+
+~
+
+\lstset{language=XML}
+\begin{lstlisting}
+<!ELEMENT liste-algo (liste-oll|liste-pll)>
+
+<!ELEMENT liste-oll (oll*)>
+<!ELEMENT oll (algo)>
+<!ATTLIST oll index ID #REQUIRED>
+
+<!ELEMENT liste-pll (pll*)>
+<!ELEMENT pll (algo)>
+<!ATTLIST pll index ID #REQUIRED>
+
+<!ELEMENT algo (#PCDATA)>
+\end{lstlisting}
+
+~
+Nous avions commencé un XSD (XML Schema Definition) permettant de restreindre les possibilité et de vérifier l'intégrité du fichier XML, mais suite à la redéfinition des objectifs, nous sommes partis sur l'exploitation de ce fichier XML.
+
+%base de xsd pour une définition future.
+\newpage
+\subsection{Résultat}
+Voici un extrait de notre fichier XML :
+
+\begin{lstlisting}
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE algo SYSTEM "algo.dtd">
+<liste-algo>
+    <liste-oll>
+        <oll index="1" forme="LBRLURLFR">
+            <algo>R U2 R2 F R Fp U2 Rp F R Fp</algo>
+        </oll>
+        <oll index="2" forme="LBBLURLFF">
+            <algo>F R U Rp Up Fp f R U Rp Up fp</algo>
+        </oll>
+    </liste-oll>
+    <liste-pll>
+        <pll index="0" name="Vide" contour="FFFRRRBBBLLL">
+            <algo> </algo>
+        </pll>
+        <pll index="1" name="U" contour="FLFRFRBBBLRL">
+            <algo>R R U R U Rp Up Rp Up Rp U Rp</algo>
+        </pll>
+    </liste-pll>
+</liste-algo>
+\end{lstlisting}
+
+
+\section{SAX et DOM}
+Sur tous langages de programmation, il existe 2 manière de parser un fichier XML :
+\begin{description}
+\item [SAX : ]parseur événementiel. Il est basé sur des événements déclenché à chaque parcours d'une nouvelle balise. Celui-ci est très adapté pour des fichiers de grande taille. En effet il ne charge pas tout le fichier en mémoire mais seulement une petite partie à la fois.
+\item [DOM : ]surcouche au parseur SAX, permettant de reconstruire en mémoire tout l'arbre XML. Celui-ci est très adapté pour les fichiers de petite taille 
+\end{description}
+
+~
+
+Suite à une étude approfondie des implantation de SAX et DOM en Java et de l'étude de nos besoin qui sont de charger une seule fois, au lancement de l'application, le chargement des algos en mémoire, nous avons choisis d'utiliser le parseur SAX.
+
+\section{Performances}
+
+Nous avons ainsi développé une classe Java gérant chacune de nos balises et créant notre base de données d'algorithmes. Nous avons ensuite changé la méthode utilisé pour résoudre le Rubik's Cube.
+

@@ -1,0 +1,191 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\title{Projet ECAO Rubiks Cube: Robot Lego\\ - Documentation -}
+\author{Bienaimé Pierre, Bonnet Bastien, Chataigner Mathieu,\\ Fresquet Mathieu}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+\newpage
+\section{Introduction}
+
+
+Le but de ce projet est de créer un robot en légo capable de résoudre un Rubiks Cube de manière complètement autonome. Pour cela, nous avons rassemblé les différentes parties réalisées lors de notre ECAO du semestre dernier et lors de la dernière semaine SOSI.
+Ces différentes parties sont:
+
+~
+
+\begin{itemize}
+ \item la logique métier: notre programme Java permettant de trouver la solution d'un Rubik's Cube
+ \item le prototype du robot légo
+ \item la partie réseau: un programme java permettant d'établir la communication entre un ordinateur et le robot
+ \item l'acquisition: un programme java permettant de scanner le cube via une webcam
+ \item la restitution 3D: un programme java utilisant l'openGL
+ \item l'algorithme de conversion des mouvements humains en mouvements robots
+\end{itemize}
+
+
+\section{Travail effectué}
+
+Voici l'ensemble du travail réalisé:
+
+
+\subsection{Logique Métier}
+
+ Cette partie était déjà fonctionnelle, elle n'a donc pas été modifiée. Elle a simplement été intégrée avec les autres composants du projet. 
+
+\subsection{Robot} 
+
+Le robot légo a été finalisé et fiabilisé afin qu'il puisse effectuer des mouvements précis, et ainsi enchainer un grand nombre d'actions. Cette partie est pleinement fonctionnelle, à condition que le Rubiks Cube ne soit pas trop difficile à tourner et que les piles du NXT soient bien chargées. Dans sa version actuelle, le robot est donc capable d'effectuer des mouvements pendant 25 minutes, normalement, sans se \textit{tromper}, temps qui correspond à une résolution complète. 
+
+Par ailleurs, ce robot à été réalisé sans plan, il est donc certifié 100\% INSA. Certains concepts ont cependant été découverts grâce à internet, comme le fait d'incliner légèrement la plate-forme pour permettre plus facilement de retourner le cube. Aucun manuel n'a encore été réalisé permettant de le reconstruire. Nous vous conseillons donc de faire preuve de la vigilance avant de le démonter. 
+
+\subsection{Réseau} 
+
+Le communication entre le NXT et un ordinateur a été améliorée et intégrée. Cette communication est maintenant à double sens, c'est à dire que l'ordinateur donne l'ordre au robot d'effectuer un mouvement. Le robot effectue ce mouvement. Une fois le mouvement complètement effectué, le robot prévient l'ordinateur qu'il est prêt à recevoir un nouvel ordre. L'ordinateur envoie alors au robot le mouvement suivant à réaliser.
+
+\subsection{Acquisition} 
+
+La partie acquisition par webcam a été tout d'abord intégrée, mais après plusieurs tests non concluants, elle a été temporairement écartée du projet. En effet, le programme de reconnaissance d'image n'était pas assez fiable et avait du mal à déterminer avec précision les couleurs des cubes de chaque face. Le principal problème provenait des reflets: beaucoup de cubies étaient détectés comme étant blancs alors qu'ils ne l'étaient pas.
+
+ Une interface \texttt{detection} a été implémentée afin de faciliter la future intégration d'une acquisition par webcam fonctionnelle. Cette interface est pour l'instant utilisée par la classe \texttt{FausseDetection}, qui simule le fait qu'une webcam prend des photos du Rubiks Cube et les transmette à la partie logique métier. C'est donc à l'utilisateur d'indiquer manuellement comment le cube est mélangé. Pour cela, il doit fournir lors du lancement du programme les mouvements qui ont servis à mélanger le cube. La classe \texttt{FausseDetection} mélange alors le cube avec ces mouvements, et transmets les faces de ce cube à la partie logique métier.
+ 
+\subsection{Restitution 3D} 
+
+La partie openGL a été améliorée et intégrée. Elle est à présent parfaitement fonctionnelle. Le code a été modifié pour supprimer un clignotement présent dans la version prototype. Une barre de progression a également été ajoutée permettant d'avoir une idée de l'avancement de la résolution. A chaque fois qu'un mouvement humain est envoyé par l'ordinateur au robot, il est également envoyé à la vue OpenGL, qui l'effectue. Cette vue ne représente donc pas les mouvements faits par le robot, mais les mouvements faits par un humain. Le robot, quant à lui, va convertir ces mouvements humains en mouvements robots, puisqu'il ne sait faire que trois types de mouvement.
+
+\subsection{Conversion des mouvements}
+
+La partie conversion des mouvements humains en mouvements robots a tout d'abord été intégrée, puis a été optimisée et complètement recodée pour mieux correspondre aux besoins de synchronisation entre le programme, le robot et la vue 3D OpenGL. Cette conversion est optimisée, puisque le NXT analyse les mouvements humains qui lui sont transmis et procède à des simplifications si la conversion de deux mouvements humains successifs génère des mouvements robots qui s'\textit{annulent}. Malgré tout, si notre algorithme trouve une solution en environ 130 mouvements humains, le robot effectuera cette solution en environ 450 mouvements.
+
+
+
+
+
+
+
+\section{Fonctionnement}
+
+
+\subsection{Comment utiliser le programme Java}
+
+\subsubsection{Installer}
+
+La première étape est de récupérer l'archive du projet et de s'assurer que l'ordinateur est bien paramétré pour faire faire fonctionner le Java, le boitier NXT et l'openGL. Pour plus de details, se référer au README de l'archive. Un script d'installation permet de telecharger toutes les librairies nécessaires au fonctionnement du programme:
+
+Pour installer: \texttt{bash install.sh}
+
+\subsubsection{Compiler}
+
+Le programme peut alors être compilé, si toutes les librairies nécessaires sont préalablement placées dans le répertoire lib. Comme ces librairies sont des fichiers binaires, elles ne peuvent pas être déposées directement sur le svn du projet. Elles sont normalement toutes automatiquement installées lors de l'execution du script d'installation.
+
+Pour compiler: \texttt{bash compile}
+
+\subsubsection{Executer}
+
+Il faut s'assurer que le NXT est correctement branché. Ensuite, il existe deux possibilités pour exécuter:
+
+\begin{enumerate}
+ \item \texttt{bash exec}. Pour cela, il suffit de placer le cube résolu sur la plate-forme. Le robot va alors le mélanger avec un mélange prédéfini, choisi car il est rapide à résoudre. Une fois ce mélange par défaut réalisé, le robot marque une courte pause et procède à la résolution du cube. 
+ \item \texttt{bash exec ``R U Dp Lp F Bp D D Rp''}. Avec en paramètre la suite de mouvement ayant servi à mélanger le cube. Ce cube doit alors être mélangé manuellement avant d'être placé sur la plate-forme.
+\end{enumerate}
+
+~
+
+Lors de l'exécution, plusieurs fenêtres s'ouvrent:
+\begin{itemize}
+ \item La visualisation 3D en temps réel openGL
+ \item L'indicateur d'avancement de la résolution
+
+\end{itemize}
+
+~
+
+
+De plus, dans le terminal où a été lancé l'exécution, s'affiche le nombre de mouvement humains trouvés par l'algorithme de résolution ainsi que des vues éclatées du cube avant et après sa résolution permettant de vérifier visuellement que le programme a bien fonctionné.
+
+Il est conseillé d'agrandir la taille du terminal afin d'otenir un affichage correct.
+
+\subsection{Comment positionner le Rubiks Cube mélangé}
+
+L'important est de placer le cube avec la même orientation que lorsqu'il a été mélangé, c'est a dire la face de dessus (UP: \textit{U}) vers le haut, et la face de devant (FRONT: \textit{F}) vers la pince.
+Par convention, nous vous conseillons de mélanger le cube en plaçant la face jaune vers le haut et la face orange vers vous.
+Au moment de placer le cube sur la plate-forme, il suffit donc d'orienter la face jaune vers le haut et la face orange vers la pince.
+
+Pour rappel, lorsqu'un cube est mélangé, la couleur de chacune des faces est repérée par le cubie central (qui est fixe).
+
+
+\subsection{Ce que le robot sait faire}
+
+Le robot légo est conçu avec deux moteurs. Il sait réaliser trois types de mouvement, qui suffisent à reproduire, en plusieurs étapes, la vingtaine de mouvements humains existants.
+Il est constitué de deux parties distinctes: une plate-forme rotative et une pince. Voici la description de ces mouvements:
+
+\begin{description}
+
+ \item[Mouvement A: ] Le robot avance sa pince, ce qui pousse le cube et le fait légèrement sortir de la plate-forme. Comme cette plateforme est inclinée, lorsque la pince se retire, le cube retombe sur la plate-forme, en ayant exécuté un quart de tour (mouvement humain \textit{x}).
+ 
+ \item[Mouvement B: ] La pince n'est pas utilisée. Seul la plate-forme effectue un quart de tour dans le sens trigo (mouvement humain \textit{y}).
+
+ \item[Mouvement C: ] La pince avance et bloque les deux couronnes supérieures du cube. La plate-forme effectue alors un quart de tour dans le sens trigo. Ainsi, uniquement la dernière couronne du cube tourne (mouvement humain \textit{D}).
+
+\end{description}
+
+Pour accélérer la résolution, le robot sait faire quelques mouvements supplémentaires:
+\begin{itemize}
+ \item B2
+ \item B3
+ \item C2
+ \item C3
+\end{itemize}
+
+~
+
+
+Pour le mouvement C2 par exemple, le robot effectue le mouvement C, mais avec une rotation de la plate-forme d'un demi tour.
+Il est a noter que pour faire un mouvement B3 ou C3, la plate-forme tourne trois fois dans le sens trigo et non pas une fois dans le sens horaire. Ce choix a été fait pour répondre à des problèmes de précision. La plate-forme tourne toujours dans le même sens, car il existe un léger jeu entre les dents des roues qui servent à faire tourner la plate-forme. Effectuer les rotations toujours dans le même sens permet d'outrepasser ce jeu.
+
+
+\section{Améliorations futures}
+
+Des améliorations futures sont possibles selon plusieurs axes. L'amélioration la plus importante, pour obtenir un robot parfaitement autonome, est de réaliser un système d'acquisition du Rubiks Cube mélangé et de l'intégrer dans ce projet. Il suffirait alors de lancer le programme avec le cube mélangé placé sur le robot. Le robot scanne chacune des faces du cube et les transmet à la logique métier, qui trouve la solution. Cette dernière est alors appliquée par le robot.
+
+
+~
+
+La seconde amélioration possible, afin de diminuer le temps de résolution, est d'implémenter une méthode de résolution qui est plus rapide que la notre. Notre méthode de résolution, baptisée \textit{EasyResolution} correspond en fait à la méthode employée par un utilisateur humain débutant: le robot fait une croix sur la première couronne, fini la première face, fini la seconde couronne en 4 étapes, et fait plusieurs OLL et plusieurs PLL pour achever la résolution\footnote{Pour plus de détails, consulter le rapport de l'ECAO RubiksCube: Logique Métier}. La résolution serait donc plus rapide si une méthode de résolution plus efficace était implémentée (\textit{MediumResolution} et \textit{ProResolution}). Par exemple, en apprenant toutes les OLL et PLL ainsi que les algorithmes de F2L au robot, l'algorithme de résolution pourrait passer de 130 mouvements humains à environ 60. Il est à noter que cela resterait une méthode \textit{humaine}. Les machines sont plus performantes que le cerveau des hommes, et il existe des programmes très évolués permettant de trouver la solution optimale de chaque mélange. Ainsi, selon la théorie, chaque cube peut être résolu en 20 à 25 mouvements. Ces mouvements ne sont bien-entendu pas intuitifs, et les programmes permettant de les trouver sont à l'heure actuelle très gourmands en ressources. 
+
+\section{Documentation disponible}
+
+Les différentes documentations disponibles concernant ce projet sont:
+
+\begin{itemize}
+ \item Ce présent rapport
+ \item Le rapport de l'ECAO RubiksCube: Logique Métier.
+ \item La Javadoc
+ \item Le diagramme de classe
+ \item Le README pour l'installation et la compilation
+\end{itemize}
+
+Tous ces documents sont présents dans l'archive du projet.
+Pour tout renseignement complémentaire ou tout question qui ne trouverait pas de réponse, n'hésitez pas à nous contacter:
+
+\begin{description}
+ \item[Bienaimé Pierre: ] pierre.bienaime@insa-rouen.fr
+ \item[Bonnet Bastien: ] bastien.bonnet@insa-rouen.fr
+ \item[Chataigner Mathieu: ] mathieu.chataigner@insa-rouen.fr
+ \item[Fresquet Mathieu: ] mathieu.fresquet@insa-rouen.fr
+\end{description}
+
+\section{Conclusion}
+
+Ce projet fut pour nous une satisfaction puisqu'il nous a permis d'effectuer un lien entre notre cursus scolaire et une de nos passions: le Rubiks Cube. Nous sommes satisfaits de voir que le robot est fonctionnel, notre seul regret est de ne pas avoir pu implémenter une acquisition par webcam afin que le robot soit réellement autonome. Nous espérons que ce Robot 100\% ASI servira, avec succès, à la promotion du département.
+
+\end{document}

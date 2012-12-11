@@ -1,0 +1,113 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{longtable}
+\usepackage{pdfpages}
+\usepackage[absolute]{textpos}
+%\usepackage{geometry}
+\usepackage[colorlinks=true,linkcolor=black]{hyperref}
+
+%\geometry{hmargin=.05\textwidth, vmargin=.05\textheight}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Package settings
+\definecolor{light-gray}{gray}{0.95}
+
+\definecolor{dark-gray}{gray}{0.55}
+
+\hypersetup{urlcolor=dark-gray}
+
+\lstset{language=HTML,
+frame=shadowbox,
+backgroundcolor=\color{light-gray},
+basicstyle=\scriptsize,
+stringstyle=\ttfamily,
+xleftmargin=1cm,
+xrightmargin=1cm,
+breaklines,
+showstringspaces=false,
+showtabs=false,
+extendedchars=false,
+numbers=left,
+numberstyle=\tiny,
+stepnumber=5,
+numbersep=5pt}
+
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\fancyhead[RO]{\textit{Rapport d'activité}}
+\fancyhead[LO]{\textit{ECAO Robot Rubik's Cube}}
+\fancyhead[CO]{}
+\fancyfoot[CO]{\begin{picture}(0,0)\put(115,-40){\color{black}{Page \thepage{} sur \pageref{LastPage} }} \end{picture}}%
+
+\fancypagestyle{plain}
+{
+  \fancyhead[RO]{\textit{Rapport d'activité}}
+  \fancyhead[LO]{\textit{ECAO Robot Rubik's Cube}}
+  \fancyhead[CO]{}
+  \fancyfoot[CO]{\begin{picture}(0,0)\put(115,-40){\color{black}{Page \thepage{} sur \pageref{LastPage} }}\end{picture}}%
+}
+
+% End package settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Rapport final ECAO Rubik's Cube}
+\author{Bastien \textsc{Bonnet}, Mathieu \textsc{Chataîgner}}
+
+
+
+
+
+
+\begin{document}
+
+  \pagenumbering{alph}
+  
+  \begin{center}
+  \begin{textblock*}{5cm}(3cm,2.5cm)
+  \includegraphics[scale=.35]{images/INSA.pdf}\\
+  \end{textblock*}
+  \end{center}  
+  
+  \maketitle
+  
+   
+  \newpage
+  \pagenumbering{arabic}
+  \tableofcontents
+  
+  \newpage
+  \chapter*{Introduction}
+  \addcontentsline{toc}{chapter}{Introduction}
+  \input{parties/0-Intro}
+   
+  \newpage
+  \chapter{Orientation du projet}
+  \input{parties/1-OrientationProjet}
+  
+  \newpage
+  \chapter{Création de la base de données d'algorithmes}
+  \input{parties/2-CreationBD}
+  
+  \newpage
+  \chapter{État final du projet}
+  \input{parties/3-UMLfinal}
+  
+  \newpage
+  \chapter*{Conclusion}
+  \addcontentsline{toc}{chapter}{Conclusion}
+  \input{parties/5-Conclusion}
+  
+\end{document}

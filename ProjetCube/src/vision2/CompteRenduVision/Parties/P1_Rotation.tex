@@ -1,0 +1,9 @@
+Avant de pratiquer une détection des faces du cube, nous recherchons l'orientation idéale pour permettre la récupération d'informations via des projections de l'image en abscisses et ordonnées. Pour cela, les arêtes du cube doivent être parallèles aux arêtes de l'image.
+
+La projection de l'image en ordonnées est un vecteur contenant les moyennes pondérées des pixels de chacune des lignes, et la projection en abscisses correspont à la moyenne pour chacune des colonnes.
+
+Afin d'effectuer la transformation, nous utilisons la méthode suivante :
+L'orientation idéale du cube se caractérise, sur les projections de l'image en abscisses et ordonnées, par la maximisation des pics correspondant aux arêtes sombres du cube.
+
+La méthode est la suivante : nous effectuons plusieurs rotations matricielles sur l'image d'origine. Nous effectuons ensuite les projections en abscisses et en ordonnées pour chaque rotation et nous retenons la rotation dont les pics sont maximaux.
+

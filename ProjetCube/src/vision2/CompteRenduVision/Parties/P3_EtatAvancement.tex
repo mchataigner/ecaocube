@@ -1,0 +1,37 @@
+  A l'heure actuel, la partie vision du projet est fonctionnel, En effet nous avons mis en place une solution permettant de faire communiquer le code matlab précédemment produit avec le code java de l'ensemble du projet.
+  Cependant, le taux de réussite de notre algorithme est très insatisfaisant. 
+
+\subsection{Erreur de détection de contour}
+
+\subsubsection{Problème principal}
+
+	La principale raison de l'échec se situe au niveau de la détection des contours des faces colorés. Pour rappel, nous détectons quatre droites sur chacune des six faces du cube pour nous permettre d'obtenir les 54 facettes du cube.
+
+	Or si le taux de réussite est acceptable pour la détection des facettes sur une seule face du cube, il devient très faible lors d'une détection sur les six faces.
+	
+\subsubsection{Causes principales}
+	
+	Notre algorithme se base sur la détection des arrêtes foncés du cube. Cependant l'ensemble des arrêtes sont brillantes, ce qui pose le problème suivant :
+	Dans le cas d'un éclairage diffus, l'ensemble des arrêtes apparaissent noir, c'est le cas idéal. S'il existe une source de lumière directionnelle, certaines arrêtes apparaîtrons parfaitement blanches du fait de la brillance.
+	
+\subsubsection{Pistes de résolution}
+
+	Dans le code actuel, nous somme capable de savoir si une erreur de détection s'est produite, auquel cas nous interrompons les calculs. Un solution relativement rapide à mettre en place serait de traiter ces erreur sur les axes suivants :
+	\begin{itemize}
+	\item Si au moins l'une des face est détectée correctement, alors il doit être possible d'appliquer la grille de détection sur l'ensemble des faces.
+	\item Si sur une seule face, et pour une seule projection, les deux droites détectés ne sont pas celles attendus, alors il est possible d'en détecter une troisième dans le but d'obtenir les droites voulues.
+	\end{itemize}	
+	
+\subsection{Erreur de détection de couleur}
+
+\subsubsection{Problème principal}
+
+  Comme il est visible sur la figure~\ref{RGBnok} sur la classe rouge notamment, les classes se retrouvent coupées en deux par d'autres classes. 
+  En effet, avec la méthode implantée, une classe qui a trop d'éléments peut donné un ou plusieurs de ceux-là à une classe qui est à l'opposé, si elle manque d'éléments. 
+
+%\subsubsection{Causes principales}
+
+  
+\subsubsection{Piste de résolution}
+
+  Il faut mettre en place la condition concernant le nombre d'éléments par classe dans l'algorithme de résolution du K-Mean de tel façon que le rééquilibrage des classes se fassent entre les classes voisines. 

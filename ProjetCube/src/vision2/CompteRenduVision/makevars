@@ -1,0 +1,19 @@
+# ajoutez les cibles ici (ex: PICFloyd_Q_PGC.pdf)
+TARGET=CompteRenduVision.pdf
+
+# Indiquez les sos répertoires.
+SUBDIRS=
+#+= Images
+
+# Indiquez où est le répertoire /Ressources/Documents/cls par rapport au répertoire actuel.
+TRUNKPATH=../../../#(rajouter les ../ ex: =../../ et surtout ne pas laisser d'espace entre le dernier / et le # ou le retour à la ligne)
+CLSPATH=$(TRUNKPATH)/Ressources/Document/cls/ \
+#:$(TRUNKPATH)/Ressources/Document/cls/pic/ \
+#:$(TRUNKPATH)/Ressources/Document/cls/commun/ \
+#:$(TRUNKPATH)/Ressources/Document/cls/asi/ \
+
+# Indiquez les actions à effectuer après la compilation. 
+POSTMAKE=mv CompteRenduVision.pdf PDF/CompteRenduVision.pdf
+
+# Indiquez les actions à effectuer a la suite du cleanall. ex: rm -f versions/*.pdf
+POSTCLEANALL=

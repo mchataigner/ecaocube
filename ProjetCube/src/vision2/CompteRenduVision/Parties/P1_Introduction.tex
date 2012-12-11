@@ -1,0 +1,17 @@
+  La première étape est le recalage de l'image permettant de trouver les carrés de la face considérée. 
+
+  Pour cela, nous avons étudié et comparé différentes façons de trouver les contours du \rubic{} : 
+\begin{itemize}
+  \item Faire une rotation de l'image pour recadrer l'image, 
+  \item Étudier les projetés en X et Y des couleurs des points de l'image pour trouver les lignes de points 'noirs' caractéristiques des 
+contours : 
+    \begin{itemize}
+      \item Par l'étude de la dérivée, 
+      \item Par la recherche par seuil, 
+      \item Par l'étude de la variance des N points successifs. 
+    \end{itemize}
+  \item Étudier la variation sur une fenêtre de points de l'image. 
+\end{itemize}
+
+  Nous avons travaillé sur une image en niveaux de gris car l'information sur les couleurs n'était pas intéressante pour cette étude. 
+Nous avons obtenu l'image en niveaux de gris grâce aux fonctions \textbf{imread} et \textbf{rgb2gray} disponible sous octave. 

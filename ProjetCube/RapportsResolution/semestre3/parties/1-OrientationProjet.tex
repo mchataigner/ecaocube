@@ -1,0 +1,51 @@
+\section{Orientation du projet}
+    Après 2 semestres d'ECAO Rubik's Cube, nous avons à présent un robot physique fonctionnel, ainsi qu'un programme procurant une solution à celui-ci de niveau débutant. Cette solution est calculée par la classe \texttt{EasyResolution} et est composée en moyenne de 150 mouvements humains (logique métier), ce qui se traduit par environ 500 mouvements robot et une résolution par celui-ci d'une durée moyenne de 30mn.
+    
+    L'objectif premier de ce semestre est d'améliorer le programme de résolution sur deux aspect : propreté et réutilisabilité du code ainsi qu'une amélioration des performances du robot en ce qui concerne le temps d'exécution de la solution.
+    
+    Le premier objectif s'est traduit par le choix de créer une base d'algorithmes externalisée par rapport au reste du code.
+    
+    En ce qui concerne le deuxième objectif, le problème est le suivant : le robot met actuellement 30 minutes en moyenne pour effectuer une résolution du Rubik's Cube. Une telle durée est acceptable pour un modèle de résolution développé en deux semestre ; cependant, pour les démonstrations au grand public, cette durée peut être longue, particulièrement lorsque le public est composé de non connaisseurs ou d'enfants. Ceci le deuxième objectif : l'amélioration des performances du robot en termes de temps total pour effectuer les mouvements composant l'algorithme solution.
+    
+    ~
+    
+    On notera que l'implémentation de la première solution facilitera l'atteinte du second objectif car il sera plus aisé d'ajouter de nouveaux algorithmes dans la base de donnés.
+    
+    
+\section{Étapes temporelles du projet -- historique}
+    Ci-dessous se trouve un résumé chronologique des différentes étapes de l'évolution du projet durant le semestre :
+    
+    ~
+    
+    \noindent
+    \begin{tabular}{p{.25\textwidth} p{.65\textwidth}}
+    \textbf{01/03 $\rightarrow$ 22/03} :
+    & 
+    $\bullet$ Approche bottom-up pour la création de la base de données :
+    \begin{itemize}
+     \item Création d'un modèle de base de donné format XML ;
+     \item Création des DTD et XSD associées.
+    \end{itemize}
+    \\    
+    \textbf{22/03 $\rightarrow$ 12/04} :
+    &
+    $\bullet$ Mise à jour de l'UML complet du projet ;
+    
+    $\bullet$ Début du nettoyage du code existant ;
+    
+    $\bullet$ Choix utilisation SAX ou DOM pour manipulation XML.
+    
+    ~
+    
+    \\
+    \textbf{12/04 $\rightarrow$ 31/05} : 
+    &
+    $\bullet$ Création de la classe ayant pour rôle d'interfacer la BD(XML) avec l'application Java;
+    
+    $\bullet$ Création de la résolution \texttt{MediumResolution} (niveau intermédiaire).
+    
+    \\
+    \textbf{31/05 $\rightarrow$ 15/06} : & $\bullet$ Rédaction du rapport d'activité incluant l'état actuel du projet complet.
+    \end{tabular}
+
+    
