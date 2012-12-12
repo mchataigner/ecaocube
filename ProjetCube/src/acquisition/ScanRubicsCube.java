@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.io.FileOutputStream;
 
 import javax.media.Buffer;
 import javax.media.CaptureDeviceInfo;
@@ -31,12 +32,9 @@ import javax.media.util.BufferToImage;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 
-// import com.sun.image.codec.jpeg.JPEGCodec;
-// import com.sun.image.codec.jpeg.JPEGEncodeParam;
-// import com.sun.image.codec.jpeg.JPEGImageEncoder;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import java.io.File;
+import com.sun.image.codec.jpeg.JPEGCodec;
+import com.sun.image.codec.jpeg.JPEGEncodeParam;
+import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 
 public class ScanRubicsCube extends Panel implements ActionListener {
@@ -155,26 +153,23 @@ public class ScanRubicsCube extends Panel implements ActionListener {
     Graphics2D g2 = bi.createGraphics();
     g2.drawImage(img, null, null);
 
-    File out = null;
+    FileOutputStream out = null;
     try {
-	out = new File(s);
-	ImageIO.write(bi, "jpg", out);
-    } catch (java.io.IOException io) {
-      System.err.println();
+	out = new FileOutputStream(s);
+    } catch (java.io.FileNotFoundException io) {
+      System.out.println("File Not Found");
     }
 
+    JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
+    JPEGEncodeParam param = encoder.getDefaultJPEGEncodeParam(bi);
+    param.setQuality(0.5f,false);
+    encoder.setJPEGEncodeParam(param);
     
-    // JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-    // JPEGEncodeParam param = encoder.getDefaultJPEGEncodeParam(bi);
-    // param.setQuality(0.5f,false);
-    // encoder.setJPEGEncodeParam(param);
-    
-    // try {
-    //   encoder.encode(bi);
-    //   out.close();
-    // } catch (java.io.IOException io) {
-    // 	System.out.println("IOException");
-    // }
-    
+    try {
+      encoder.encode(bi);
+      out.close();
+    } catch (java.io.IOException io) {
+	System.out.println("IOException");
+    }
   }  
 } 

@@ -44,8 +44,8 @@ public class Emetteur
         if(!getConnector().connectTo("usb://")){
             throw new NXTException("No NXT found using USB.");
         }
-        inDat=(DataInputStream)getConnector().getInputStream();
-        outDat=(DataOutputStream)getConnector().getOutputStream();
+        inDat=getConnector().getDataIn();
+        outDat=getConnector().getDataOut();
     }
 
 

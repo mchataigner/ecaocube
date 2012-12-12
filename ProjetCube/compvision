@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+
+export CLASSPATH=$CLASSPATH:$(pwd)/lib/jai-1_1_3/lib/jai_codec.jar
+export CLASSPATH=$CLASSPATH:$(pwd)/lib/jai-1_1_3/lib/jai_core.jar
+export CLASSPATH=$CLASSPATH:$(pwd)/lib/jai-1_1_3/lib/mlibwrapper_jai.jar
+
+export CLASSPATH=$CLASSPATH:$(pwd)/lib/JMF-2.1.1e/lib/mediaplayer.jar
+export CLASSPATH=$CLASSPATH:$(pwd)/lib/JMF-2.1.1e/lib/jmf.jar
+export CLASSPATH=$CLASSPATH:$(pwd)/lib/JMF-2.1.1e/lib/multiplayer.jar
+
+export CLASSPATH=$CLASSPATH:./classes
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)/lib/jai-1_1_3/lib/:$(pwd)/lib/JMF-2.1.1e/lib
+
+javac -d ./classes -sourcepath ./src ./src/acquisition/ScanRubicsCube.java
+javac -d ./classes -sourcepath ./src ./src/vision/CubeFactory.java

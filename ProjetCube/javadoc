@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [[ $(uname -m| grep 64) ]];then
+arch=amd64;
+else
+arch=i586;
+fi
+
+
+export NXJ_HOME=$(pwd)/lib/lejos_nxj
+
+export CLASSPATH=$CLASSPATH:$NXJ_HOME/lib/classes.jar
+export CLASSPATH=$CLASSPATH:$NXJ_HOME/lib/jtools.jar
+export CLASSPATH=$CLASSPATH:$NXJ_HOME/lib/pccomm.jar
+export CLASSPATH=$CLASSPATH:$NXJ_HOME/lib/pctools.jar
+
+export CLASSPATH=$CLASSPATH:$(pwd)/lib/jogl-1.1.1-linux-$arch/lib/jogl.jar
+export CLASSPATH=$CLASSPATH:$(pwd)/lib/jogl-1.1.1-linux-$arch/lib/gluegen-rt.jar
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$NXJ_HOME/bin/:$(pwd)/lib/jogl-1.1.1-linux-$arch/lib
+
+
+export PATH=$PATH:$NXJ_HOME/bin
+
+
+javadoc -encoding utf8 -docencoding utf8 -charset utf8 -sourcepath ./src -d ./doc/javadoc -subpackages cube

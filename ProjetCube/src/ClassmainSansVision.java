@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class ClassmainSansVision{
+public class Classmain{
     public static void main(String[] args)throws Throwable
     {
         boolean virtuel=false;

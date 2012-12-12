@@ -39,8 +39,6 @@ import javax.media.protocol.DataSource;
 import javax.media.control.FormatControl;
 import javax.media.Format;
 import javax.media.protocol.CaptureDevice;
-import java.io.IOException;
-import java.io.FileNotFoundException;
 
 public class ScanRubikCubeAuto{// extends Panel implements ActionListener {
   public static Player player = null;

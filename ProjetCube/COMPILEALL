@@ -1,0 +1,59 @@
+
+
+./compileTestDetectionVision2.sh
+./compile Vision
+#./compile 
+./nxjcompile
+
+
+gst-launch-0.10 v4l2src ! ffmpegcolorspace ! pngenc ! filesink location=./images/face1.png
+./nxjexec 
+sleep 2
+./exec "x" Vision
+gst-launch-0.10 v4l2src ! ffmpegcolorspace ! pngenc ! filesink location=./images/face2.png
+sleep 5 
+./nxjexec 
+sleep 2
+./exec "x" Vision
+gst-launch-0.10 v4l2src ! ffmpegcolorspace ! pngenc ! filesink location=./images/face3.png
+sleep 5 
+./nxjexec 
+sleep 2
+./exec "xp" Vision
+sleep 5
+./nxjexec 
+sleep 2
+./exec "zp" Vision
+gst-launch-0.10 v4l2src ! ffmpegcolorspace ! pngenc ! filesink location=./images/face4.png
+sleep 5 
+./nxjexec 
+sleep 2
+./exec "zp" Vision
+gst-launch-0.10 v4l2src ! ffmpegcolorspace ! pngenc ! filesink location=./images/face5.png
+sleep 5 
+./nxjexec 
+sleep 2
+./exec "zp" Vision
+gst-launch-0.10 v4l2src ! ffmpegcolorspace ! pngenc ! filesink location=./images/face6.png
+sleep 5 
+./nxjexec 
+sleep 2
+./exec "zp" Vision
+sleep 5
+./nxjexec 
+sleep 2
+./exec "xp" Vision
+
+
+cd ./src/vision2/matlab/
+rm ./test.txt
+octave mainCouleur.m
+cd ../../../
+cp ./src/vision2/matlab/test.txt . 
+
+./execTestDetectionVision2.sh
+
+beep -f 700
+sleep 15
+
+#./exec

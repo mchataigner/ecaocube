@@ -763,7 +763,8 @@ public class GLCube implements GLEventListener, MouseMotionListener, MouseListen
 
 
 
-    public static void playMovement(MouvementElementaire _mvt){
+    public static void playMovement(MouvementElementaire _mvt)
+    {
         mvt = _mvt;
         rotate = 0;
         cubeMoving = true;
@@ -795,9 +796,5 @@ public class GLCube implements GLEventListener, MouseMotionListener, MouseListen
         animator.start();
         canvas.requestFocus();
     }
-
-  public void dispose(GLAutoDrawable drawable){
-    
-  }
 }
 

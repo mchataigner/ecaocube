@@ -1,0 +1,12 @@
+Pour installer les dépendances correctement, lancez le script install.sh
+qui téléchargera les librairies et qui règlera les préférences nécéssaires au bon fonctionnement de celle-ci.
+
+Il faut ensuite ajouter un groupe lego, ajouter l'utilisateur courant à ce groupe, ajouter une règle udev :
+
+/etc/udev/rules.d/70-lego.rules
+
+# Lego NXT
+BUS=="usb", SYSFS{idVendor}=="03eb", GROUP="lego", MODE="0660"
+BUS=="usb", SYSFS{idVendor}=="0694", GROUP="lego", MODE="0660" 
+
+Pour que tous les paramètre soient pris en compte il faut se reloguer sur la machine.

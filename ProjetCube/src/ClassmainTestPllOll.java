@@ -19,7 +19,7 @@ public class ClassmainTestPllOll{
         Algorithme algo= new Algorithme(stringalgo);
         fake = new FausseDetection(algo);
         
-	Cube leCube = fake.detecter();
+	Cube leCube = fake.detecter(null,null,null,null,null,null);
         Cube test = Cube.creerCube(leCube.toFace());
 
 	/* Résolution */
